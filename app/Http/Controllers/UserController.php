@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -14,6 +15,11 @@ use Illuminate\Support\Facades\Validator;
  */
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Exibe a pagina inicial listar usuarios
      * Retorna os dados dos usuarios cadastrados no BD
@@ -23,9 +29,12 @@ class UserController extends Controller
     public function index()
     {
         $users = User::paginate(10);
-        $data['users'] = $users;
+        $loggedId =  intval(Auth::id());
 
-        return view('admin.users.index', $data);
+        return view('admin.users.index', [
+            'users' => $users,
+            'loggedId' => $loggedId
+        ]);
     }
 
     /**
@@ -183,10 +192,20 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deletando o usuario
+     *
+     * @param int $id recebe o id do usuario
+     * @return void
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
-        //
+        $loggedId = intval(Auth::id());
+
+        if ($loggedId !== intval($id)){
+            $user = User::find($id);
+            $user->delete();
+        }
+
+        return redirect()->route('users.index');
     }
 }
