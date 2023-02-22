@@ -300,17 +300,18 @@ return [
         [
             'text' => 'Dashboard',
             'url'  => 'home',
-            'icon'  => 'fas fa-tachometer-alt',
+            'icon' => 'fas fa-tachometer-alt',
         ],
         [
             'text' => 'Páginas',
             'url'  => 'painel/pages',
-            'icon'  => 'fas fa-copy',
+            'icon' => 'fas fa-copy',
         ],
         [
             'text' => 'Usuários',
             'url'  => 'painel/users',
-            'icon'  => 'fas fa-users',
+            'icon' => 'fas fa-users',
+            'can'  => 'edit-users'
         ],
 
         ['header' => 'account_settings'],
