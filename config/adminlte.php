@@ -300,25 +300,30 @@ return [
         [
             'text' => 'Dashboard',
             'url'  => 'home',
-            'icon' => 'fas fa-tachometer-alt',
+            'icon' => 'fas fa-fw fa-tachometer-alt',
         ],
         [
             'text' => 'Páginas',
             'url'  => 'painel/pages',
-            'icon' => 'fas fa-copy',
+            'icon' => 'fas fa-fw fa-copy',
         ],
         [
             'text' => 'Usuários',
             'url'  => 'painel/users',
-            'icon' => 'fas fa-users',
+            'icon' => 'fas fa-fw fa-users',
             'can'  => 'edit-users'
         ],
 
-        ['header' => 'account_settings'],
+        ['header' => 'Configurações'],
         
         [
-            'text' => 'profile',
-            'url'  => 'user/read',
+            'text' => 'Configurações do Site',
+            'url'  => 'painel/settings',
+            'icon' => 'fas fa-fw fa-cog',
+        ],
+        [
+            'text' => 'Meu Perfil',
+            'url'  => 'painel/profile',
             'icon' => 'fas fa-fw fa-user',
         ],
     ],
