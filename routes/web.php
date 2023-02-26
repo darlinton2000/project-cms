@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,9 @@ Route::prefix('painel')->group(function(){
 
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('profile/save', [ProfileController::class, 'save'])->name('profile.save');
+
+    Route::get('settings', [SettingController::class, 'index'])->name('settings');
+    Route::put('settings/save', [SettingController::class, 'save'])->name('settings.save');
 });
 
 
