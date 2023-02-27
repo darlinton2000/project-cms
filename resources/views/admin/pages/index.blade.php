@@ -29,9 +29,9 @@
                             <td>
                                 <a href="#" target="_blank" class="btn btn-sm btn-info">Ver</a>
                                 <a href="{{ route('pages.edit', ['page' => $page->id]) }}" class="btn btn-sm btn-warning">Editar</a>
-                                <form class="d-inline" method="post" action="{{ route('pages.destroy', ['page' => $page->id]) }}" onsubmit="return confirm('Tem certeza que deseja excluir?')">
+                                <form class="d-inline" method="POST" action="{{ route('pages.destroy', ['page' => $page->id]) }}" onsubmit="return confirm('Tem certeza que deseja excluir?')">
                                     @csrf
-                                    @method('delete')
+                                    @method('DELETE')
 
                                     <button class="btn btn-sm btn-danger">Excluir</button>
                                 </form>

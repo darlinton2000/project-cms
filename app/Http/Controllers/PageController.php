@@ -162,7 +162,7 @@ class PageController extends Controller
             if (!empty($data['slug'])){
                 $page->slug = $data['slug'];
             }
-            
+
             $page->save();
         }
 
@@ -170,10 +170,16 @@ class PageController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Deletando a pagina
+     *
+     * @param int $id recebe o id da pagina
+     * @return void
      */
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
-        //
+        $page = Page::find($id);
+        $page->delete();
+
+        return redirect()->route('pages.index');
     }
 }
