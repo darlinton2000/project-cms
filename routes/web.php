@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserController;
@@ -29,6 +30,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::prefix('painel')->group(function(){
     
     Route::resource('users', UserController::class);
+    Route::resource('pages', PageController::class);
 
     Route::get('profile', [ProfileController::class, 'index'])->name('profile');
     Route::put('profile/save', [ProfileController::class, 'save'])->name('profile.save');
