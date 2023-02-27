@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        echo "Page";
+        $pages = Page::paginate(10);
+
+        return view('admin.pages.index', [
+            'pages' => $pages
+        ]);
     }
 
     /**
