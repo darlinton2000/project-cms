@@ -34,7 +34,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Corpo</label>
                 <div class="col-sm-10">
-                    <textarea name="body" class="form-control">{{ $page->body }}</textarea>
+                    <textarea name="body" class="form-control bodyfield">{{ $page->body }}</textarea>
                 </div>
             </div>
         </div>
@@ -42,7 +42,25 @@
         <div class="card-footer">
             <button type="submit" value="Salvar" class="btn btn-success">Salvar</button>
         </div>
-
     </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/6.3.2/tinymce.min.js"></script>
+    <script>
+
+        tinymce.init({
+            selector:'textarea.bodyfield',
+            height:300,
+            menubar:false,
+            plugins:['link', 'table', 'image', 'autosize', 'lists'],
+            toolbar:'undo redo | formatselect | bold italic backcolor | alignleft aligncenter alignright alignjustify | table | link image | bullist numlist',
+            content_css:[
+                '{{asset('assets/css/content.css')}}'
+            ],
+            images_upload_url:'{{route('imageupload')}}',
+            images_upload_credentials:true,
+            convert_urls:false
+        });
+
+    </script>
 
 @endsection
