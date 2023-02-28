@@ -64,7 +64,7 @@ class HomeController extends Controller
         $pageValues = json_encode(array_values($pagePie));
 
         // Enviando as informações para a view
-        return view('home', [
+        return view('admin.home', [
             'visitsCount'  => $visitsCount,
             'onlineCount'  => $onlineCount,
             'pageCount'    => $pageCount,

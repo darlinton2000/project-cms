@@ -74,6 +74,7 @@
     </div>
 
     <div class="row">
+
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
@@ -84,15 +85,24 @@
                 </div>
             </div>
         </div>
+
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
-                    <h3 class="card-title">Sobre o sistema</h3>
+            <div class="card bg-gradient-success">
+                <div class="card-header border-0">
+                    <h3 class="card-title">
+                        <i class="far fa-calendar-alt"></i> Calendário
+                    </h3>
+                
+                    <div class="card-tools">
+                        <button type="button" class="btn btn-success btn-sm" data-card-widget="remove">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="card-body pt-0">
+                        <div id="calendar" style="width: 100%"></div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    ...
-                </div>
-            </div>
+            </div>        
         </div>
     </div>
 
@@ -117,5 +127,7 @@
             })
         }
     </script>
+
+    <script src="{{asset('assets/js/dashboard.js')}}"></script>
     
 @endsection
