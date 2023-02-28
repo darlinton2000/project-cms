@@ -20,14 +20,24 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Exibindo as informações no Dashboard
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        // Contagem de Visitantes
-        $visitsCount = Visitor::count();
+        $visitsCount = 0;
+        $onlineCount = 0;
+        $pageCount = 0;
+        $userCount = 0;
+        $interval =  intval($request->input('interval', 30));
+        if ($interval > 120){
+            $interval = 120;
+        }
+
+        // Contagem de Visitantes 
+        $dateInterval = date('Y-m-d H:i:s', strtotime('-'. $interval . ' days'));
+        $visitsCount = Visitor::where('date_access', '>=', $dateInterval)->count();
         
         // Contagem de Usuários Online
         $datelimit = date('Y-m-d H:i:s', strtotime('-5 minutes'));
@@ -40,11 +50,28 @@ class HomeController extends Controller
         // Contagem de Usuários
         $userCount = User::count();
 
+        // Dados do gráfico
+        $pagePie = [];
+        $visitAll = Visitor::selectRaw('page, count(page) as c')
+                            ->where('date_access', '>=', $dateInterval)
+                            ->groupBy('page')
+                            ->get();
+        foreach($visitAll as $visit){
+            $pagePie[$visit['page']] = intval($visit['c']);
+        }
+
+        $pageLabels = json_encode(array_keys($pagePie));
+        $pageValues = json_encode(array_values($pagePie));
+
+        // Enviando as informações para a view
         return view('home', [
-            'visitsCount' => $visitsCount,
-            'onlineCount' => $onlineCount,
-            'pageCount'   => $pageCount,
-            'userCount'   => $userCount
+            'visitsCount'  => $visitsCount,
+            'onlineCount'  => $onlineCount,
+            'pageCount'    => $pageCount,
+            'userCount'    => $userCount,
+            'pageLabels'   => $pageLabels,
+            'pageValues'   => $pageValues,
+            'dateInterval' => $interval
         ]);
     }
 }
