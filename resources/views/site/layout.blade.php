@@ -86,26 +86,34 @@
                             <p>{{ $front_config['subtitle'] }}</p>
                             <div class="socail_links">
                                 <ul>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="ti-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="ti-twitter-alt"></i>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" target="_blank">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
+                                    @if ($front_config['facebook'] != null)
+                                        <li>
+                                            <a href="{{ $front_config['facebook'] }}"target="_blank">
+                                                <i class="ti-facebook"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if ($front_config['twitter'] != null)
+                                        <li>
+                                            <a href="{{ $front_config['twitter'] }}" target="_blank">
+                                                <i class="ti-twitter-alt"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if ($front_config['instagram'] != null)
+                                        <li>
+                                            <a href="{{ $front_config['instagram'] }}" target="_blank">
+                                                <i class="fa fa-instagram"></i>
+                                            </a>
+                                        </li>
+                                    @endif
+                                    @if ($front_config['email'] != null)
                                     <li>
                                         <a href="mailto:{{ $front_config['email'] }}">
                                             <i class="ti-email"></i>
                                         </a>
                                     </li>
+                                    @endif
                                 </ul>
                             </div>
 

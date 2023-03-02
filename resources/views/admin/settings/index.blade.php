@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Configurações')
+@section('title', 'Configurações do Site')
 
 @section('content_header')
-    <h1>Configurações</h1>
+    <h1>Configurações do Site</h1>
 @endsection
 
 @section('content')
@@ -35,14 +35,14 @@
                 @method('PUT')
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Título do Site</label>
+                    <label class="col-sm-2 col-form-label">Título</label>
                     <div class="col-sm-10">
                         <input type="text" name="title" value="{{$settings['title']}}" class="form-control"/>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Sub-titulo do Site</label>
+                    <label class="col-sm-2 col-form-label">Sub-titulo</label>
                     <div class="col-sm-10">
                         <input type="text" name="subtitle" value="{{$settings['subtitle']}}" class="form-control"/>
                     </div>
@@ -56,16 +56,23 @@
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Cor do fundo</label>
+                    <label class="col-sm-2 col-form-label">Facebook</label>
                     <div class="col-sm-10">
-                        <input type="color" name="bgcolor" value="{{$settings['bgcolor']}}" class="form-control" style="width: 70px"/>
+                        <input type="url" name="facebook" value="{{$settings['facebook']}}" class="form-control"/>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Cor do texto</label>
+                    <label class="col-sm-2 col-form-label">Instagram</label>
                     <div class="col-sm-10">
-                        <input type="color" name="textcolor" value="{{$settings['textcolor']}}" class="form-control" style="width: 70px"/>
+                        <input type="url" name="instagram" value="{{$settings['instagram']}}" class="form-control"/>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Twitter</label>
+                    <div class="col-sm-10">
+                        <input type="url" name="twitter" value="{{$settings['twitter']}}" class="form-control"/>
                     </div>
                 </div>
 
