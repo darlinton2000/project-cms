@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'DLInfo LTE',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -294,6 +294,16 @@ return [
         [
             'type'         => 'fullscreen-widget',
             'topnav_right' => true,
+        ],
+
+        // Icon Dark Mode
+        [
+            'type'           => 'darkmode-widget',
+            'topnav_right'   => true,
+            'icon_disabled'   => 'fas fa-moon',
+            'icon_enabled'  => 'fas fa-sun',
+            'color_enabled' => 'yellow',
+            'color_disabled'  => 'black',
         ],
 
         // Sidebar items:

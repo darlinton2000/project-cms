@@ -87,17 +87,17 @@
                             <div class="socail_links">
                                 <ul>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" target="_blank">
                                             <i class="ti-facebook"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" target="_blank">
                                             <i class="ti-twitter-alt"></i>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#">
+                                        <a href="#" target="_blank">
                                             <i class="fa fa-instagram"></i>
                                         </a>
                                     </li>

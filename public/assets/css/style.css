@@ -1334,7 +1334,7 @@ h3 {
 
 /* line 8, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_slider.scss */
 .slider_area .single_slider {
-  height: 900px;
+  height: 600px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center center;
@@ -1523,9 +1523,9 @@ h3 {
 }
 
 /* line 19, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_features.scss */
-.features_area .features_main_wrap {
+/* .features_area .features_main_wrap {
   padding: 90px 0;
-}
+} */
 
 @media (max-width: 767px) {
   /* line 19, ../../Arafath/CL/CL October/214. App Landing Page/HTML/scss/_features.scss */
