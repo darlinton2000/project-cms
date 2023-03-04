@@ -7,14 +7,19 @@
 
 <hr/>
 
+Tela Inicial
+
+![01 - Tela Inicial](https://user-images.githubusercontent.com/46008964/222871724-cadd0e70-ec25-43bb-b050-fe6947e5f7b2.png)
+
 Tela de Login
 
-![01 - Tela de Login](https://user-images.githubusercontent.com/46008964/220653864-56103099-30cc-4f54-9cd0-bd28bf462e82.png)
+![02 - Tela de Login](https://user-images.githubusercontent.com/46008964/222871740-ec9eef03-c095-4100-97b4-45a3029cfdb6.png)
 
-Tela de Dashboard
+Dashboard
 
-![02 - Dashboard](https://user-images.githubusercontent.com/46008964/220654104-ef473830-b9c1-4dcf-bb64-91c8fcd1f392.png)
+![03 - Dashboard](https://user-images.githubusercontent.com/46008964/222871754-7e06028f-7aa2-4bc5-aa5a-d60265c63405.png)
 
-Tela de Listar Usuários
+Tela de Listar Páginas
 
-![03 - Listar Usuários](https://user-images.githubusercontent.com/46008964/220654232-9b8e2662-47b0-4743-9f6d-3706bc3b6044.png)
+![04 - Tela Listar Páginas](https://user-images.githubusercontent.com/46008964/222871764-2416653d-3395-482a-a6b0-6216ae9b1f80.png)
+
