@@ -63,12 +63,12 @@ return [
     |
     */
 
-    'logo' => '<b>AdminLTE</b> USER',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>DLInfo</b>',
+    'logo_img' => '/assets/img/logo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
-    'logo_img_alt' => 'Admin Logo',
+    'logo_img_alt' => 'DLInfo',
 
     /*
     |--------------------------------------------------------------------------
@@ -84,10 +84,9 @@ return [
     */
 
     'auth_logo' => [
-        'enabled' => false,
+        'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'Auth Logo',
+            'path' => '/assets/img/logo.png',
             'class' => '',
             'width' => 50,
             'height' => 50,
@@ -107,10 +106,10 @@ return [
     */
 
     'preloader' => [
-        'enabled' => true,
+        'enabled' => false,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
+            'path' => '/assets/img/logo.png',
+            'alt' => 'DLInfo Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
@@ -300,10 +299,10 @@ return [
         [
             'type'           => 'darkmode-widget',
             'topnav_right'   => true,
-            'icon_disabled'   => 'fas fa-moon',
-            'icon_enabled'  => 'fas fa-sun',
-            'color_enabled' => 'yellow',
-            'color_disabled'  => 'black',
+            'icon_disabled'  => 'fas fa-moon',
+            'icon_enabled'   => 'fas fa-sun',
+            'color_enabled'  => 'yellow',
+            'color_disabled' => 'black',
         ],
 
         // Sidebar items:

@@ -15,11 +15,6 @@
                             <p class="wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".1s">{{ $front_config['subtitle'] }}</p>
                         </div>
                     </div>
-                    <div class="col-xl-5 col-md-6">
-                        <div class="phone_thumb wow fadeInDown" data-wow-duration="1.1s" data-wow-delay=".2s">
-                            <img src="{{asset('img/ilstrator/phone.png')}}" alt="">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
