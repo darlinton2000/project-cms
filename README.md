@@ -17,9 +17,9 @@ Tela de Login
 
 Dashboard
 
-![03 - Dashboard](https://user-images.githubusercontent.com/46008964/222871754-7e06028f-7aa2-4bc5-aa5a-d60265c63405.png)
+![03 - Dashboard](https://user-images.githubusercontent.com/46008964/222979762-6d465d50-009a-45ce-8a78-9d3a067b487e.png)
 
 Tela de Listar Páginas
 
-![04 - Tela Listar Páginas](https://user-images.githubusercontent.com/46008964/222871764-2416653d-3395-482a-a6b0-6216ae9b1f80.png)
+![04 - Tela Listar Páginas](https://user-images.githubusercontent.com/46008964/222979814-05052174-544f-41c6-a643-a635ae3af0b9.png)
 
