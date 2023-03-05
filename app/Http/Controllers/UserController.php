@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 /**
@@ -59,6 +60,7 @@ class UserController extends Controller
         // Recebendo os dados do formulário
         $data = $request->only([
             'name',
+            'image',
             'email',
             'password',
             'password_confirmation'
@@ -67,6 +69,7 @@ class UserController extends Controller
         // Validando
         $validator = Validator::make($data, [
             'name' => ['required', 'string', 'max:100'],
+            'image' => ['nullable', 'image', 'max:3072'],
             'email' => ['required', 'string', 'email', 'max:200', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed']
         ]);
@@ -78,14 +81,21 @@ class UserController extends Controller
             ->withInput();
         }
 
+        // Verificando se foi enviado alguma imagem
+        if ($data['image']){
+            $path = $data['image']->store('users');
+            $data['image'] = $path;
+        }
+
         // Inserindo no BD
         $user = new User;
         $user->name = $data['name'];
+        $user->image = $data['image'];
         $user->email = $data['email'];
         $user->password = Hash::make($data['password']);
         $user->save();
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('warning', 'Usuário cadastrado com sucesso!');
     }
 
     /**
@@ -131,6 +141,7 @@ class UserController extends Controller
             // Recebendo apenas os dados abaixo do formulario
             $data = $request->only([
                 'name',
+                'image',
                 'email',
                 'password',
                 'password_confirmation'
@@ -138,14 +149,25 @@ class UserController extends Controller
 
             // Criando as validações
             $validator = Validator::make([
-                'name'=> $data['name'],
+                'name'  => $data['name'],
+                'image' => $data['image'],
                 'email' => $data['email']
             ],  [
-                'name' => ['required', 'string', 'max:100'],
+                'name'  => ['required', 'string', 'max:100'],
+                'image' => ['nullable', 'image', 'max:3072'],
                 'email' => ['required', 'string', 'email', 'max:100']
             ]);
 
             $user->name = $data['name'];
+
+            // Verificando se foi enviado alguma imagem, se existir ira deletar e fazer o upload
+            if ($data['image']){
+                if ($user->image && Storage::exists($user->image)){
+                    Storage::delete($user->image);
+                }
+                $path = $data['image']->store('users');
+                $user->image = $path;
+            }
 
             // Verificando se o email foi alterado
             if ($user->email != $data['email']){
@@ -204,9 +226,15 @@ class UserController extends Controller
 
         if ($loggedId !== intval($id)){
             $user = User::find($id);
+
+            // Deletando a imagem do usuaro
+            if ($user->image && Storage::exists($user->image)){
+                Storage::delete($user->image);
+            }
+
             $user->delete();
         }
 
-        return redirect()->route('users.index');
+        return redirect()->route('users.index')->with('warning', 'Usuário excluído com sucesso!');
     }
 }

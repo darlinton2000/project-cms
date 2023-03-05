@@ -20,7 +20,7 @@
         </div>
     @endif
 
-    <form action="{{ route('users.store') }}" method="post" class="form-horizontal">
+    <form action="{{ route('users.store') }}" method="POST" enctype="multipart/form-data" class="form-horizontal">
         @csrf
 
         <div class="card-body">
@@ -28,6 +28,12 @@
                 <label class="col-sm-2 col-form-label">Nome Completo</label>
                 <div class="col-sm-10">
                     <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Nome Completo">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Foto</label>
+                <div class="col-sm-10">
+                    <input type="file" name="image" value="{{ old('image') }}" class="form-control @error('image') is-invalid @enderror">
                 </div>
             </div>
             <div class="form-group row">

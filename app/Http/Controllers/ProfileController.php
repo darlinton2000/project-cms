@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class ProfileController extends Controller
@@ -47,6 +48,7 @@ class ProfileController extends Controller
             // Recebendo apenas os dados abaixo do formulario
             $data = $request->only([
                 'name',
+                'image',
                 'email',
                 'password',
                 'password_confirmation'
@@ -54,14 +56,25 @@ class ProfileController extends Controller
 
             // Criando as validações
             $validator = Validator::make([
-                'name'=> $data['name'],
+                'name' => $data['name'],
+                'image' => $data['image'],
                 'email' => $data['email']
             ],  [
-                'name' => ['required', 'string', 'max:100'],
+                'name'  => ['required', 'string', 'max:100'],
+                'image' => ['nullable', 'image', 'max:3072'],
                 'email' => ['required', 'string', 'email', 'max:100']
             ]);
 
             $user->name = $data['name'];
+
+            // Verificando se foi enviado alguma imagem, se existir ira deletar e fazer o upload
+            if ($data['image']){
+                if ($user->image && Storage::exists($user->image)){
+                    Storage::delete($user->image);
+                }
+                $path = $data['image']->store('users');
+                $user->image = $path;
+            }
 
             // Verificando se o email foi alterado
             if ($user->email != $data['email']){
